@@ -1,2 +1,0 @@
-console.log("defgrtbnh"),console.log("defgrtbnh");const e=document.getElementById("search-box");console.log(e),e.addEventListener("input",(function(e){o=e.target.value,console.log(o),fetch(`https://restcountries.com/v2/name/${o}?fields=nativeName,capital,population,flag,languages`).then((e=>e.json())).then((e=>e.map((e=>{console.log(e,"ADF")}))))}));let o="";
-//# sourceMappingURL=index.ff5ff847.js.map

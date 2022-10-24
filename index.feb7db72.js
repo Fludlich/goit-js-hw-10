@@ -1,2 +1,0 @@
-!function(){console.log("defgrtbnh"),console.log("defgrtbnh");var n=document.getElementById("search-box");console.log(n),n.addEventListener("input",(function(n){e=n.target.value,console.log(e),fetch("https://restcountries.com/v2/name/".concat(e,"?fields=nativeName,capital,population,flag,languages")).then((function(n){return n.json()})).then((function(n){return n.map((function(n){console.log(n,"ADF")}))}))}));var e=""}();
-//# sourceMappingURL=index.feb7db72.js.map
