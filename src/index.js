@@ -15,8 +15,12 @@ input.addEventListener("input", debounce(serchingResult, DEBOUNCE_DELAY));
 let country = "";
 
 function serchingResult(event) {
+    if(input.value.length===0) {
+      return
+    }
     country = event.target.value;
     arar();
+   
 }
 function arar() {
     fetch(`https://restcountries.com/v2/name/${country}?fields=name,capital,population,flag,languages`)
