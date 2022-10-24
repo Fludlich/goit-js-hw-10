@@ -3,7 +3,6 @@ import './css/styles.css';
 let debounce = require('lodash.debounce');
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
 const DEBOUNCE_DELAY = 300;
 
 const countryList = document.querySelector('.country-list')
@@ -15,7 +14,7 @@ input.addEventListener("input", debounce(serchingResult, DEBOUNCE_DELAY));
 let country = "";
 
 function serchingResult(event) {
-    if(input.value.length===0) {
+    if(input.value.trim().length===0) {
       return
     }
     country = event.target.value;
@@ -23,11 +22,13 @@ function serchingResult(event) {
    
 }
 function arar() {
-    fetch(`https://restcountries.com/v2/name/${country}?fields=name,capital,population,flag,languages`)
+    fetch(`https://restcountries.com/v2/name/${country.trim()}?fields=name,capital,population,flag,languages`)
     .then((response)=>response.json())
     .then(data=> dataLength(data))
     .catch(e=>{
-        Notify.failure('Oops, there is no country with that name');
+        if(input.value.length>0){
+            Notify.failure('Oops, there is no country with that name');
+        }
         countryList.innerHTML = `<li></li>`
     })
   
